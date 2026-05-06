@@ -1,0 +1,19 @@
+# Cache-Aware and Cache-Oblivious Sorting
+
+## Requirements
+- GCC 10+ on Linux x86-64
+- POSIX environment (uses posix_memalign, madvise)
+
+## Build
+g++ -O3 -march=native -flto -funroll-loops -o sort_bench sort.cpp
+
+## Run
+./sort_bench 10000000    # pass N as argument, default is 10M
+
+## Output
+Prints average time in ms for Cache-Aware, Cache-Oblivious, and std::sort.
+Correctness is verified against std::sort reference output.
+
+## Plots
+- `line_chart.png`: Shows performance scaling (time in ms vs. input size N) across all three sorting algorithms for a fully random distribution.
+- `Performance_Comparison.png`: A bar chart comparing the execution times of the algorithms at N=10M across both the random and nearly-sorted distributions.
